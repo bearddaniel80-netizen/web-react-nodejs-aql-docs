@@ -15,14 +15,14 @@ FROM git-base AS bff
 
 WORKDIR /downloads
 
-RUN git clone --depth=1 https://github.com/bearddaniel80-netizen/web-aql-docs.git
+RUN git clone --depth=1 https://github.com/bearddaniel80-netizen/web-react-aql-docs.git
 
 # ---------- runtime ----------
 FROM deps AS runtime
 
 WORKDIR /app
 
-COPY --from=bff /downloads/web-aql-docs/node .
+COPY --from=bff /downloads/web-react-aql-docs/node .
 
 RUN --mount=type=cache,target=/root/.npm \
     npm install
